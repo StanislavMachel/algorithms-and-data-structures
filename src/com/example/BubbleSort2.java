@@ -4,8 +4,8 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
-public class BubbleSort {
-
+//not effective
+public class BubbleSort2 {
 	private static int[] arr;
 
 	public static void main(String[] args) {
@@ -21,22 +21,23 @@ public class BubbleSort {
 		for (int i = 0; i < arrSize; i++) {
 			arr[i] = random.nextInt(100);
 		}
+
 		int comparisonCount = 0;
 		int transpositionCount = 0;
 
 		System.out.println("Initial array: " + Arrays.toString(arr));
 
-		for (int out = arr.length - 1; out > 1; out--) {
-			for (int in = 0; in < out; in++) {
+		for (int out = 0; out < arr.length; out++) {
+			for (int in = out + 1; in < arr.length; in++) {
+				System.out.println("arr[out]: " + arr[out]);
 				System.out.println("arr[in]: " + arr[in]);
-				System.out.println("arr[in+1]: " + arr[in + 1]);
 				comparisonCount++;
-				if (arr[in] > arr[in + 1]) {
-					System.out.println("Swap elements arr[" + in + "]=" + arr[in] + " and arr[" + (in + 1) + "]=" + arr[in + 1] + "...");
+				if (arr[out] > arr[in]) {
+					System.out.println("Swap elements arr[" + out + "]=" + arr[out] + " and arr[" + in + "]=" + arr[in] + "...");
 					transpositionCount++;
 					int temp = arr[in];
-					arr[in] = arr[in + 1];
-					arr[in + 1] = temp;
+					arr[in] = arr[out];
+					arr[out] = temp;
 					System.out.println("Array after swap: " + Arrays.toString(arr));
 				}
 			}
@@ -45,6 +46,5 @@ public class BubbleSort {
 		System.out.println("Sorted array: " + Arrays.toString(arr));
 		System.out.println("Comparison count: " + comparisonCount);
 		System.out.println("Transposition count: " + transpositionCount);
-
 	}
 }
