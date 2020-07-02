@@ -21,6 +21,8 @@ public class BubbleSort {
 		for (int i = 0; i < arrSize; i++) {
 			arr[i] = random.nextInt(100);
 		}
+		int comparisonCount = 0;
+		int transpositionCount = 0;
 
 		System.out.println("Initial array: " + Arrays.toString(arr));
 
@@ -28,8 +30,10 @@ public class BubbleSort {
 			for (int in = 0; in < out; in++) {
 				System.out.println("arr[in]: " + arr[in]);
 				System.out.println("arr[in+1]: " + arr[in + 1]);
+				comparisonCount++;
 				if (arr[in] > arr[in + 1]) {
 					System.out.println("Swap elements arr[" + in + "]=" + arr[in] + " and arr[" + (in + 1) + "]=" + arr[in + 1] + "...");
+					transpositionCount++;
 					int temp = arr[in];
 					arr[in] = arr[in + 1];
 					arr[in + 1] = temp;
@@ -37,5 +41,8 @@ public class BubbleSort {
 				}
 			}
 		}
+
+		System.out.println("Sorted array: " + Arrays.toString(arr));
+
 	}
 }
